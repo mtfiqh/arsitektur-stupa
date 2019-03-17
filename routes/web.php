@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'user'], function () {
     Voyager::routes();
 });
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
