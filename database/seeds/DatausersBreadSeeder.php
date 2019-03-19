@@ -60,16 +60,52 @@ class DatausersBreadSeeder extends Seeder
                 'delete'       => 0,
                 'details'      => '',
                 'order'        => 3,
-            ]
-        ];
-    }
+            ],
+            'identity' => [
+                'type'         => 'text',
+                'display_name' => 'Identity',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 4,
+            ],
+            'user_id' => [
+                'type'         => 'text',
+                'display_name' => 'User Id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 5,
+            ],
+            'datauser_belongsto_user_relationship' => [
+                'type'         => 'text',
+                'display_name' => 'User Id',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => '',
+                'order'        => 6,
+            ],
+            ];
+        }
 
-    public function menuEntry()
-    {
-        return [
-            'role'      => 'admin',
-            'title'      => 'Datausers',
-            'url'        => '',
+        public function menuEntry()
+        {
+            return [
+                'role'      => 'admin',
+                'title'      => 'Datausers',
+                'url'        => '',
             'route'      => 'voyager.datausers.index',
             'target'     => '_self',
             'icon_class' => 'voyager-basket',
