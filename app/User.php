@@ -37,8 +37,24 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * datauser mempunyai user_id
+     * jadi menggunakan relasi hasOne
+     * hubungannya one to one.
+     */
     public function datauser()
     {
         return $this->hasOne('App\Datausers');
+    }
+
+    /**
+     * user mempunyai role_id
+     * hubungan dengan role jika mempunyai 1 role hanya one to one.
+     * user terhadap role
+     * mendapatkan model role dari voyager (karena tidak override model role).
+     */
+    public function role()
+    {
+        return $this->belongsTo('\TCG\Voyager\Models\Role');
     }
 }

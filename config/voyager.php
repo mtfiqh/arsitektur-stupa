@@ -12,10 +12,10 @@ return [
 
     'user' => [
         'add_default_role_on_register' => true,
-        'default_role'                 => 'user',
+        'default_role'                 => 'mahasiswa',
         'namespace'                    => null,
         'default_avatar'               => 'users/default.png',
-        'redirect'                     => '/admin',
+        'redirect'                     => '/user',
     ],
 
     /*
@@ -194,10 +194,12 @@ return [
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
         //'css/custom.css',
+        // 'css/app.css'
     ],
 
     'additional_js' => [
         //'js/custom.js',
+        // 'js/app.js'
     ],
 
     'googlemaps' => [
