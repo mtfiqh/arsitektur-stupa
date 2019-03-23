@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class HasRole
+class IsRoleAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,10 @@ class HasRole
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role != NULL){
+            if(Auth::user()->role->name=="admin"){
                 return $next($request);
-                // return true;
             }
-            echo 'Anda tidak mempunyai izin silahkan hubungi dosen';
+            return redirect('/user/users/'.Auth::user()->id.'/edit');
         }
     }
 }

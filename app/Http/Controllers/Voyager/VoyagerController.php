@@ -9,17 +9,16 @@ use TCG\Voyager\Http\Controllers\VoyagerController as BaseVoyagerController;
 
 class VoyagerController extends BaseVoyagerController
 {
+    public function __construct(){
+        $this->middleware('hasRole');
+    }
     /**
      * override index function
      * menampilkan index sesuai role
      */
     public function index()
     {
-        if($this->middleware('hasRole')){
-            return view("dashboard.".Auth::user()->role->name);
-        }else{
-            echo "Kamu tidak punya izin, silahkan hubungi dosen bersangkutan";
-        }
+        return view("dashboard.".Auth::user()->role->name);
     }
 
     /**
