@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Mar 2019 pada 14.06
+-- Waktu pembuatan: 25 Mar 2019 pada 14.10
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -56,7 +56,7 @@ CREATE TABLE `datausers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `identity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identity` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -65,7 +65,8 @@ CREATE TABLE `datausers` (
 --
 
 INSERT INTO `datausers` (`id`, `created_at`, `updated_at`, `identity`, `user_id`) VALUES
-(1, '2019-03-17 01:08:14', '2019-03-17 01:08:14', '14116162', 1);
+(1, '2019-03-17 01:08:14', '2019-03-17 01:08:14', '14116162', 1),
+(10, '2019-03-24 21:22:49', '2019-03-24 21:22:49', '1234567890', 17);
 
 -- --------------------------------------------------------
 
@@ -94,17 +95,17 @@ CREATE TABLE `data_rows` (
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
-(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
-(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, NULL, 3),
-(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, NULL, 4),
-(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, NULL, 5),
-(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, NULL, 6),
-(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, NULL, 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}', 10),
+(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
+(2, 1, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, '{}', 2),
+(3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 3),
+(4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, '{}', 4),
+(5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 5),
+(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 6),
+(7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{}', 8),
+(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
 (10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, NULL, 12),
+(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 12),
 (12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
 (14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
@@ -114,7 +115,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (18, 3, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
 (19, 3, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
 (20, 3, 'display_name', 'text', 'Display Name', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Role', 1, 1, 1, 1, 1, 1, NULL, 9),
+(21, 1, 'role_id', 'text', 'Role', 0, 1, 1, 1, 1, 1, '{}', 9),
 (22, 4, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (23, 4, 'parent_id', 'select_dropdown', 'Parent', 0, 0, 1, 1, 1, 1, '{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}', 2),
 (24, 4, 'order', 'text', 'Order', 1, 1, 1, 1, 1, 1, '{\"default\":1}', 3),
@@ -155,7 +156,8 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (62, 8, 'identity', 'text', 'Identity', 1, 1, 1, 1, 1, 1, '{}', 5),
 (63, 8, 'user_id', 'text', 'User Id', 1, 1, 1, 1, 1, 1, '{}', 2),
 (64, 8, 'datauser_belongsto_user_relationship', 'relationship', 'users', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 6),
-(65, 1, 'user_hasone_datauser_relationship', 'relationship', 'datausers', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Datausers\",\"table\":\"datausers\",\"type\":\"hasOne\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"identity\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}', 13);
+(65, 1, 'user_hasone_datauser_relationship', 'relationship', 'datausers', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Datausers\",\"table\":\"datausers\",\"type\":\"hasOne\",\"column\":\"user_id\",\"key\":\"identity\",\"label\":\"identity\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
+(66, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 0, '{}', 6);
 
 -- --------------------------------------------------------
 
@@ -186,7 +188,7 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'App\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '\\App\\Http\\Controllers\\Voyager\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-03-16 10:46:24', '2019-03-24 21:12:05'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
@@ -212,7 +214,8 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '2019-03-16 10:46:24', '2019-03-16 10:46:24');
+(1, 'admin', '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
+(2, 'mahasiswa', '2019-03-24 21:21:16', '2019-03-24 21:21:16');
 
 -- --------------------------------------------------------
 
@@ -426,6 +429,7 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
+(1, 4),
 (2, 1),
 (3, 1),
 (4, 1),
@@ -444,12 +448,16 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (16, 3),
 (17, 1),
 (17, 3),
+(17, 4),
 (18, 1),
 (18, 3),
+(18, 4),
 (19, 1),
 (19, 3),
+(19, 4),
 (20, 1),
 (20, 3),
+(20, 4),
 (21, 1),
 (22, 1),
 (23, 1),
@@ -506,7 +514,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`) VALUES
-(1, 0, NULL, 'Lorem Ipsum Post', NULL, 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>', 'posts/post1.jpg', 'lorem-ipsum-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
+(1, 1, 1, 'Lorem Ipsum Post', NULL, 'This is the excerpt for the Lorem Ipsum Post', '<p>This is the body of the lorem ipsum post</p>\r\n<p><img src=\"http://localhost:8000/storage/posts/March2019/a15f9092b3899c0d8ac8d91c922159de2.png\" alt=\"\" /></p>', 'posts/post1.jpg', 'lorem-ipsum-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-03-16 10:46:25', '2019-03-25 05:46:10'),
 (2, 0, NULL, 'My Sample Post', NULL, 'This is the excerpt for the sample Post', '<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>', 'posts/post2.jpg', 'my-sample-post', 'Meta Description for sample post', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (3, 0, NULL, 'Latest Post', NULL, 'This is the excerpt for the latest post', '<p>This is the body for the latest post</p>', 'posts/post3.jpg', 'latest-post', 'This is the meta description', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (4, 0, NULL, 'Yarr Post', NULL, 'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.', '<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>', 'posts/post4.jpg', 'yarr-post', 'this be a meta descript', 'keyword1, keyword2, keyword3', 'PUBLISHED', 0, '2019-03-16 10:46:25', '2019-03-16 10:46:25');
@@ -561,7 +569,7 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (3, 'site.logo', 'Site Logo', '', '', 'image', 3, 'Site'),
 (4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
-(6, 'admin.title', 'Admin Title', 'Voyager', '', 'text', 1, 'Admin'),
+(6, 'admin.title', 'Admin Title', 'PANEL', '', 'text', 1, 'Admin'),
 (7, 'admin.description', 'Admin Description', 'Welcome to Voyager. The Missing Admin for Laravel', '', 'text', 2, 'Admin'),
 (8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
@@ -645,7 +653,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$xSlM2W8HgUhCxWQYBGtMGeGoz9/Q9L.lmi4di/XOnUFeqX66XXohS', 'VGmhU2tRtHJD6EZChaxoaYODNPyoowcogQp05BEL3pPVE92tjjaeaClgCONL', NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25');
+(1, 1, 'Admin arsitektur', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$xSlM2W8HgUhCxWQYBGtMGeGoz9/Q9L.lmi4di/XOnUFeqX66XXohS', 'Cd2YS5roW1xykE7OIhRZXFu0K4xBQG0d47pRYMeHqF7Xu4hnvcxEm4QTMO8G', '{\"locale\":\"en\"}', '2019-03-16 10:46:25', '2019-03-22 21:38:02'),
+(17, 4, 'fiq', 'muhammad.14116162@student.itera.ac.id', 'users/default.png', NULL, '$2y$10$NkxgX9d90013P4V.W5F7pOuWgMYHUKXTQ5BHtkOiZ9XYSqCaRf2.W', NULL, '{\"locale\":\"en\"}', '2019-03-24 21:22:49', '2019-03-24 21:22:49');
 
 -- --------------------------------------------------------
 
@@ -675,8 +684,8 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `datausers`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `datausers_identity_unique` (`identity`),
-  ADD UNIQUE KEY `datausers_user_id_unique` (`user_id`);
+  ADD UNIQUE KEY `datausers_user_id_unique` (`user_id`),
+  ADD UNIQUE KEY `datausers_identity_unique` (`identity`);
 
 --
 -- Indeks untuk tabel `data_rows`
@@ -799,13 +808,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT untuk tabel `datausers`
 --
 ALTER TABLE `datausers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_types`
@@ -817,7 +826,7 @@ ALTER TABLE `data_types`
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu_items`
@@ -871,7 +880,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
