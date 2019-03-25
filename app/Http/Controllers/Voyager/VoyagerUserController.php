@@ -28,6 +28,11 @@ class VoyagerUserController extends BaseVoyagerUserController
 
     public function update(Request $request, $id){
         $identity = \App\datausers::where('user_id', $id)->first();
+        // jika tidak ditemukan create data
+        if($identity == null){
+            $identity = new \App\datausers;
+            $identity->user_id = $id;
+        }
         $identity->identity = $request->identity;
         $identity->save();
 
