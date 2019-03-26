@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card" style="margin-top : 100px; border-radius:0px;">
+        <img src="{{ url('/assets/images/stupa_test.png') }}"  width="200" height="80" position="center"  style="margin-top : 20px;">
+            <div class="card" style="margin-top : 20px; border-radius:0px;">
                 <div class="card-header">{{ __('Masuk') }}</div>
 
                 <div class="card-body">
