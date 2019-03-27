@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Mar 2019 pada 14.10
+-- Waktu pembuatan: 27 Mar 2019 pada 09.16
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -479,7 +479,6 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (39, 1),
 (40, 1),
 (41, 1),
-(47, 1),
 (48, 1),
 (49, 1),
 (50, 1),
