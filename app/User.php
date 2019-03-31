@@ -44,7 +44,7 @@ class User extends \TCG\Voyager\Models\User
      */
     public function datauser()
     {
-        return $this->hasOne('App\Datausers');
+        return $this->hasOne('App\Datauser');
     }
 
     /**
@@ -57,4 +57,10 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsTo('\TCG\Voyager\Models\Role');
     }
+
+    public function rooms(){
+        return $this->belongsToMany('App\Room');
+    }
+
+
 }
