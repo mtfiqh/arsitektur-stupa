@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2019 pada 09.16
+-- Waktu pembuatan: 31 Mar 2019 pada 11.12
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -49,28 +49,6 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `datausers`
---
-
-CREATE TABLE `datausers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `identity` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `datausers`
---
-
-INSERT INTO `datausers` (`id`, `created_at`, `updated_at`, `identity`, `user_id`) VALUES
-(1, '2019-03-17 01:08:14', '2019-03-17 01:08:14', '14116162', 1),
-(10, '2019-03-24 21:22:49', '2019-03-24 21:22:49', '1234567890', 17);
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `data_rows`
 --
 
@@ -100,12 +78,12 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (3, 1, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, '{}', 3),
 (4, 1, 'password', 'password', 'Password', 1, 0, 0, 1, 1, 0, '{}', 4),
 (5, 1, 'remember_token', 'text', 'Remember Token', 0, 0, 0, 0, 0, 0, '{}', 5),
-(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 6),
+(6, 1, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 13),
 (7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
 (8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{}', 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
-(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 12),
+(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
+(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 0, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 12),
+(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 14),
 (12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
 (14, 2, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
@@ -150,14 +128,24 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (53, 6, 'created_at', 'timestamp', 'Created At', 1, 1, 1, 0, 0, 0, NULL, 10),
 (54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
 (55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12),
-(59, 8, 'id', 'number', 'ID', 1, 1, 1, 0, 0, 1, '\"\"', 1),
-(60, 8, 'created_at', 'timestamp', 'created_at', 0, 1, 1, 0, 0, 0, '\"\"', 2),
-(61, 8, 'updated_at', 'timestamp', 'updated_at', 0, 0, 0, 0, 0, 0, '\"\"', 3),
-(62, 8, 'identity', 'text', 'Identity', 1, 1, 1, 1, 1, 1, '{}', 5),
-(63, 8, 'user_id', 'text', 'User Id', 1, 1, 1, 1, 1, 1, '{}', 2),
-(64, 8, 'datauser_belongsto_user_relationship', 'relationship', 'users', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"id\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 6),
-(65, 1, 'user_hasone_datauser_relationship', 'relationship', 'datausers', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Datausers\",\"table\":\"datausers\",\"type\":\"hasOne\",\"column\":\"user_id\",\"key\":\"identity\",\"label\":\"identity\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
-(66, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 0, '{}', 6);
+(66, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(75, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(76, 10, 'nama', 'text', 'Nama', 1, 1, 1, 1, 1, 1, '{}', 2),
+(77, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 6),
+(78, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(79, 10, 'tahun', 'number', 'Tahun', 1, 1, 1, 1, 1, 1, '{}', 3),
+(80, 10, 'smester', 'radio_btn', 'Smester', 1, 1, 1, 1, 1, 1, '{\"default\":\"Ganjil\",\"options\":{\"ganjil\":\"Ganjil\",\"genap\":\"Genap\"}}', 4),
+(81, 10, 'password', 'password', 'Password', 0, 1, 1, 1, 1, 1, '{}', 5),
+(82, 1, 'user_belongstomany_room_relationship', 'relationship', 'Kelas', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Room\",\"table\":\"rooms\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"room_user\",\"pivot\":\"1\",\"taggable\":\"0\"}', 15),
+(83, 10, 'display_name', 'text', 'Display Name', 0, 0, 0, 0, 0, 0, '{}', 8),
+(84, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(85, 11, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, '{}', 3),
+(86, 11, 'description', 'rich_text_box', 'Description', 0, 1, 1, 1, 1, 1, '{}', 4),
+(87, 11, 'deadline', 'timestamp', 'Deadline', 1, 1, 1, 1, 1, 1, '{}', 5),
+(88, 11, 'user_id', 'hidden', 'User Id', 1, 0, 0, 1, 1, 0, '{}', 2),
+(89, 11, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(90, 11, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 7),
+(91, 11, 'task_belongstomany_room_relationship', 'relationship', 'Kelas', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Room\",\"table\":\"rooms\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"room_task\",\"pivot\":\"1\",\"taggable\":\"0\"}', 8);
 
 -- --------------------------------------------------------
 
@@ -188,13 +176,14 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'App\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '\\App\\Http\\Controllers\\Voyager\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-03-16 10:46:24', '2019-03-24 21:12:05'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'App\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '\\App\\Http\\Controllers\\Voyager\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-03-16 10:46:24', '2019-03-29 21:51:33'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
-(8, 'datausers', 'datausers', 'Datausers', 'Datausers', NULL, 'App\\Datausers', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-03-17 00:58:44', '2019-03-17 01:08:45');
+(10, 'rooms', 'rooms', 'Room', 'Rooms', 'voyager-logbook', 'App\\Room', NULL, '\\App\\Http\\Controllers\\RoomController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":\"currentUser\"}', '2019-03-28 20:57:55', '2019-03-30 19:26:05'),
+(11, 'tasks', 'tasks', 'Task', 'Tasks', NULL, 'App\\Task', NULL, '\\App\\Http\\Controllers\\TaskController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":\"currentUser\"}', '2019-03-30 02:57:24', '2019-03-31 02:03:33');
 
 -- --------------------------------------------------------
 
@@ -215,7 +204,8 @@ CREATE TABLE `menus` (
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', '2019-03-16 10:46:24', '2019-03-16 10:46:24'),
-(2, 'mahasiswa', '2019-03-24 21:21:16', '2019-03-24 21:21:16');
+(2, 'mahasiswa', '2019-03-24 21:21:16', '2019-03-24 21:21:16'),
+(3, 'dosen', '2019-03-30 00:37:03', '2019-03-30 00:37:03');
 
 -- --------------------------------------------------------
 
@@ -245,20 +235,23 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.dashboard', NULL),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.media.index', NULL),
-(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.users.index', NULL),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2019-03-16 10:46:24', '2019-03-30 00:42:21', 'voyager.media.index', NULL),
+(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 4, '2019-03-16 10:46:24', '2019-03-30 00:42:21', 'voyager.users.index', NULL),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.roles.index', NULL),
-(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 9, '2019-03-16 10:46:24', '2019-03-16 10:46:24', NULL, NULL),
-(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 10, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.menus.index', NULL),
-(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 11, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.database.index', NULL),
-(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 12, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.bread.index', NULL),
-(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 14, '2019-03-16 10:46:24', '2019-03-16 10:46:24', 'voyager.settings.index', NULL),
-(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2019-03-16 10:46:25', '2019-03-16 10:46:25', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2019-03-16 10:46:25', '2019-03-16 10:46:25', 'voyager.posts.index', NULL),
-(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2019-03-16 10:46:25', '2019-03-16 10:46:25', 'voyager.pages.index', NULL),
-(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 13, '2019-03-16 10:46:25', '2019-03-16 10:46:25', 'voyager.hooks', NULL),
-(16, 1, 'Datausers', '', '_self', 'voyager-basket', NULL, NULL, 8, '2019-03-17 00:58:44', '2019-03-17 00:58:44', 'voyager.datausers.index', NULL);
+(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 9, '2019-03-16 10:46:24', '2019-03-30 00:39:47', NULL, NULL),
+(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2019-03-16 10:46:24', '2019-03-28 20:30:51', 'voyager.menus.index', NULL),
+(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2019-03-16 10:46:24', '2019-03-28 20:30:51', 'voyager.database.index', NULL),
+(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2019-03-16 10:46:24', '2019-03-28 20:30:51', 'voyager.compass.index', NULL),
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2019-03-16 10:46:24', '2019-03-28 20:30:51', 'voyager.bread.index', NULL),
+(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 10, '2019-03-16 10:46:24', '2019-03-30 00:39:47', 'voyager.settings.index', NULL),
+(11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2019-03-16 10:46:25', '2019-03-30 00:39:47', 'voyager.categories.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2019-03-16 10:46:25', '2019-03-30 00:42:21', 'voyager.posts.index', NULL),
+(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2019-03-16 10:46:25', '2019-03-30 00:42:21', 'voyager.pages.index', NULL),
+(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2019-03-16 10:46:25', '2019-03-28 20:30:51', 'voyager.hooks', NULL),
+(18, 1, 'Kelas', '', '_self', 'voyager-logbook', '#000000', NULL, 3, '2019-03-28 20:57:55', '2019-03-30 02:27:00', 'voyager.rooms.index', 'null'),
+(19, 3, 'Kelas', '', '_blank', NULL, '#000000', NULL, 11, '2019-03-30 01:40:22', '2019-03-30 01:43:09', 'voyager.rooms.index', 'null'),
+(20, 3, 'User', '', '_self', NULL, '#000000', NULL, 12, '2019-03-30 01:46:22', '2019-03-30 01:46:22', 'voyager.users.index', NULL),
+(21, 1, 'Tasks', '', '_self', NULL, NULL, NULL, 13, '2019-03-30 02:57:25', '2019-03-30 02:57:25', 'voyager.tasks.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -304,7 +297,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2016_02_15_204651_create_categories_table', 2),
 (26, '2017_04_11_000000_alter_post_nullable_fields_table', 2),
 (27, '2019_03_17_014006_create_datausers_table', 3),
-(29, '2019_03_17_074825_add_identity_and_userid_to_datausers_table', 4);
+(29, '2019_03_17_074825_add_identity_and_userid_to_datausers_table', 4),
+(30, '2019_03_28_033052_create_rooms_table', 5),
+(31, '2019_03_28_112220_create_datauser_room_table', 5),
+(32, '2019_03_29_034335_create_room_user_table', 6),
+(33, '2019_03_30_093934_create_tugas_table', 7),
+(34, '2019_03_30_095422_create_tasks_table', 8),
+(35, '2019_03_30_132735_create_room_task_table', 9);
 
 -- --------------------------------------------------------
 
@@ -406,11 +405,16 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (39, 'add_pages', 'pages', '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (40, 'delete_pages', 'pages', '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
 (41, 'browse_hooks', NULL, '2019-03-16 10:46:25', '2019-03-16 10:46:25'),
-(47, 'browse_datausers', 'datausers', '2019-03-17 00:58:44', '2019-03-17 00:58:44'),
-(48, 'read_datausers', 'datausers', '2019-03-17 00:58:44', '2019-03-17 00:58:44'),
-(49, 'edit_datausers', 'datausers', '2019-03-17 00:58:44', '2019-03-17 00:58:44'),
-(50, 'add_datausers', 'datausers', '2019-03-17 00:58:44', '2019-03-17 00:58:44'),
-(51, 'delete_datausers', 'datausers', '2019-03-17 00:58:44', '2019-03-17 00:58:44');
+(57, 'browse_rooms', 'rooms', '2019-03-28 20:57:55', '2019-03-28 20:57:55'),
+(58, 'read_rooms', 'rooms', '2019-03-28 20:57:55', '2019-03-28 20:57:55'),
+(59, 'edit_rooms', 'rooms', '2019-03-28 20:57:55', '2019-03-28 20:57:55'),
+(60, 'add_rooms', 'rooms', '2019-03-28 20:57:55', '2019-03-28 20:57:55'),
+(61, 'delete_rooms', 'rooms', '2019-03-28 20:57:55', '2019-03-28 20:57:55'),
+(62, 'browse_tasks', 'tasks', '2019-03-30 02:57:24', '2019-03-30 02:57:24'),
+(63, 'read_tasks', 'tasks', '2019-03-30 02:57:24', '2019-03-30 02:57:24'),
+(64, 'edit_tasks', 'tasks', '2019-03-30 02:57:24', '2019-03-30 02:57:24'),
+(65, 'add_tasks', 'tasks', '2019-03-30 02:57:24', '2019-03-30 02:57:24'),
+(66, 'delete_tasks', 'tasks', '2019-03-30 02:57:24', '2019-03-30 02:57:24');
 
 -- --------------------------------------------------------
 
@@ -429,6 +433,7 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
+(1, 3),
 (1, 4),
 (2, 1),
 (3, 1),
@@ -446,6 +451,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (15, 1),
 (16, 1),
 (16, 3),
+(16, 4),
 (17, 1),
 (17, 3),
 (17, 4),
@@ -479,10 +485,24 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (39, 1),
 (40, 1),
 (41, 1),
-(48, 1),
-(49, 1),
-(50, 1),
-(51, 1);
+(57, 1),
+(57, 3),
+(58, 1),
+(58, 3),
+(59, 1),
+(59, 3),
+(60, 1),
+(61, 1),
+(62, 1),
+(62, 3),
+(63, 1),
+(63, 3),
+(64, 1),
+(64, 3),
+(65, 1),
+(65, 3),
+(66, 1),
+(66, 3);
 
 -- --------------------------------------------------------
 
@@ -544,6 +564,73 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `tahun` year(4) NOT NULL,
+  `smester` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `nama`, `created_at`, `updated_at`, `tahun`, `smester`, `password`, `display_name`) VALUES
+(1, 'RA', '2019-03-29 03:23:00', '2019-03-29 22:09:56', 2019, 'ganjil', '$2y$10$pnmAAXDBjSty5tHH.Zi.3.Z43m6W.cOAmF0R0L7c102ptfcEeWL0.', 'RA 2019 ganjil'),
+(2, 'RB', '2019-03-29 22:47:00', '2019-03-29 23:04:29', 2019, 'genap', '$2y$10$MQ1LG6yuCtgrYa9OJfHphevyBM7L/JfRpTRaQVqIEG4dXG30XGqza', 'RB 2019 genap'),
+(4, 'RC', '2019-03-30 03:03:00', '2019-03-30 04:23:59', 2016, 'ganjil', '$2y$10$qhFT5FNfL.05hod2IsxGxOLEKJ1yau69bv.0zKn6gSMD22K2L/tu.', 'RC 2016 ganjil');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `room_task`
+--
+
+CREATE TABLE `room_task` (
+  `room_id` bigint(20) UNSIGNED NOT NULL,
+  `task_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `room_task`
+--
+
+INSERT INTO `room_task` (`room_id`, `task_id`) VALUES
+(4, 4),
+(4, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `room_user`
+--
+
+CREATE TABLE `room_user` (
+  `room_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `room_user`
+--
+
+INSERT INTO `room_user` (`room_id`, `user_id`) VALUES
+(1, 18),
+(2, 18),
+(4, 19),
+(1, 1),
+(4, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `settings`
 --
 
@@ -573,6 +660,31 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (8, 'admin.loader', 'Admin Loader', '', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `deadline` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `title`, `description`, `deadline`, `user_id`, `created_at`, `updated_at`) VALUES
+(2, 'sd', '<p>asd</p>', '2019-03-31 08:16:00', 1, '2019-03-31 01:16:40', '2019-03-31 01:16:40'),
+(4, 'coba', '<p>cb</p>', '2019-03-31 08:32:00', 1, '2019-03-31 01:32:48', '2019-03-31 01:43:49'),
+(5, 'xx', '<p>xcv</p>', '2019-03-31 09:05:00', 19, '2019-03-31 02:05:27', '2019-03-31 02:05:27');
 
 -- --------------------------------------------------------
 
@@ -652,8 +764,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin arsitektur', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$xSlM2W8HgUhCxWQYBGtMGeGoz9/Q9L.lmi4di/XOnUFeqX66XXohS', 'Cd2YS5roW1xykE7OIhRZXFu0K4xBQG0d47pRYMeHqF7Xu4hnvcxEm4QTMO8G', '{\"locale\":\"en\"}', '2019-03-16 10:46:25', '2019-03-22 21:38:02'),
-(17, 4, 'fiq', 'muhammad.14116162@student.itera.ac.id', 'users/default.png', NULL, '$2y$10$NkxgX9d90013P4V.W5F7pOuWgMYHUKXTQ5BHtkOiZ9XYSqCaRf2.W', NULL, '{\"locale\":\"en\"}', '2019-03-24 21:22:49', '2019-03-24 21:22:49');
+(1, 1, 'Admin arsitektur', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$xSlM2W8HgUhCxWQYBGtMGeGoz9/Q9L.lmi4di/XOnUFeqX66XXohS', 'qAhHMeHbY6iO3FPn4NjVaJblw16ZCji76cLLupx1cL4PcojaS58AvDCJcH6P', '{\"locale\":\"en\"}', '2019-03-16 10:46:25', '2019-03-22 21:38:02'),
+(17, 4, 'taufiq', 'muhammad.14116162@student.itera.ac.id', 'users/default.png', NULL, '$2y$10$NkxgX9d90013P4V.W5F7pOuWgMYHUKXTQ5BHtkOiZ9XYSqCaRf2.W', NULL, '{\"locale\":\"en\"}', '2019-03-24 21:22:49', '2019-03-28 10:21:08'),
+(18, 3, 'Dosen 1', 'dosen1@dosen.itera.ac.id', 'users/default.png', NULL, '$2y$10$0l5/aVY7HGfoIn2F1Ias2.gComT7fA6zfinfgemEMT.3XIB3H0a4a', NULL, '{\"locale\":\"en\"}', '2019-03-29 22:18:24', '2019-03-29 22:18:24'),
+(19, 3, 'as', 'as@as', 'users/default.png', NULL, '$2y$10$tC8SkyOqNCzc1a.CF2UJIOAjpOoEM5fer8Gv1Tl78Q54MlnnpzSUm', NULL, '{\"locale\":\"en\"}', '2019-03-30 19:11:58', '2019-03-31 02:00:06');
 
 -- --------------------------------------------------------
 
@@ -677,14 +791,6 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_slug_unique` (`slug`),
   ADD KEY `categories_parent_id_foreign` (`parent_id`);
-
---
--- Indeks untuk tabel `datausers`
---
-ALTER TABLE `datausers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `datausers_user_id_unique` (`user_id`),
-  ADD UNIQUE KEY `datausers_identity_unique` (`identity`);
 
 --
 -- Indeks untuk tabel `data_rows`
@@ -764,11 +870,38 @@ ALTER TABLE `roles`
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
+-- Indeks untuk tabel `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `room_task`
+--
+ALTER TABLE `room_task`
+  ADD KEY `room_task_room_id_foreign` (`room_id`),
+  ADD KEY `room_task_task_id_foreign` (`task_id`);
+
+--
+-- Indeks untuk tabel `room_user`
+--
+ALTER TABLE `room_user`
+  ADD KEY `room_user_room_id_foreign` (`room_id`),
+  ADD KEY `room_user_user_id_foreign` (`user_id`);
+
+--
 -- Indeks untuk tabel `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_key_unique` (`key`);
+
+--
+-- Indeks untuk tabel `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tasks_user_id_foreign` (`user_id`);
 
 --
 -- Indeks untuk tabel `translations`
@@ -804,40 +937,34 @@ ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `datausers`
---
-ALTER TABLE `datausers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT untuk tabel `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `pages`
@@ -849,7 +976,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT untuk tabel `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT untuk tabel `posts`
@@ -864,10 +991,22 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `translations`
@@ -879,7 +1018,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -890,12 +1029,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `datausers`
---
-ALTER TABLE `datausers`
-  ADD CONSTRAINT `datausers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `data_rows`
@@ -915,6 +1048,26 @@ ALTER TABLE `menu_items`
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `room_task`
+--
+ALTER TABLE `room_task`
+  ADD CONSTRAINT `room_task_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_task_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `room_user`
+--
+ALTER TABLE `room_user`
+  ADD CONSTRAINT `room_user_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `users`
