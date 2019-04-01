@@ -1,3 +1,5 @@
+@php $role = Auth::user()->role->name @endphp
+
 <div class="side-menu sidebar-inverse">
     <nav class="navbar navbar-default" role="navigation">
         <div class="side-menu-container">
@@ -30,7 +32,8 @@
 
         </div>
         <div id="adminmenu">
-            <admin-menu :items="{{ menu('admin', '_json') }}"></admin-menu>
+            <admin-menu :items="{{ menu($role, '_json') }}"></admin-menu>
         </div>
     </nav>
 </div>
+
