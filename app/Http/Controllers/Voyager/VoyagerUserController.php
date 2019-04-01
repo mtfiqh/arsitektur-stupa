@@ -26,43 +26,5 @@ class VoyagerUserController extends BaseVoyagerUserController
         $this->middleware('isRoleAdmin')->only('index');
     }
 
-    public function update(Request $request, $id){
-        $identity = \App\datausers::where('user_id', $id)->first();
-        // jika tidak ditemukan create data
-        if($identity == null){
-            $identity = new \App\datausers;
-            $identity->user_id = $id;
-        }
-        $identity->identity = $request->identity;
-        $identity->save();
-
-        return parent::update($request, $id);
-    }
-
-    public function store(Request $request)
-    {
-        $slug = $this->getSlug($request);
-
-        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-
-        // Check permission
-        $this->authorize('add', app($dataType->model_name));
-
-        // Validate fields with ajax
-        $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
-        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
-        $addToDatauser = $data->datauser()->create([
-            'identity' => $request->identity,
-        ]);
-
-        event(new BreadDataAdded($dataType, $data));
-
-        return redirect()
-        ->route("voyager.{$dataType->slug}.index")
-        ->with([
-                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
-                'alert-type' => 'success',
-            ]);
-    }
 
 }
