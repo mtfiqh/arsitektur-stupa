@@ -19,8 +19,8 @@ class VoyagerController extends BaseVoyagerController
     public function index()
     {
         if(Auth::user()->role->name == "mahasiswa"){
-            $semuaKelas = \App\Room::orderBy('tahun', 'DESC')->orderBy('smester', 'DESC')->get();
-            return view("dashboard.mahasiswa", ["semuaKelas" => $semuaKelas]);
+            $datas = Auth::user()->role_id==null ? \App\Room::orderBy('tahun', 'DESC')->orderBy('smester', 'DESC')->get() : Auth::user()->room->tasks;
+            return view("dashboard.mahasiswa", ["datas" => $datas]);
         }
         return view("dashboard.".Auth::user()->role->name);
     }

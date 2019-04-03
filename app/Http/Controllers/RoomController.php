@@ -83,6 +83,7 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
     }
 
     public function unenroll(){
+
         $user= Auth::user();
         $user->room_id=null;
         $user->save();
