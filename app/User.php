@@ -62,5 +62,9 @@ class User extends \TCG\Voyager\Models\User
         return $this->belongsToMany('App\Room');
     }
 
+    public function room(){
+        return $this->belongsTo('App\Room');
+    }
+
 
 }

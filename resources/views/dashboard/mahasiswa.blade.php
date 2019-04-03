@@ -79,8 +79,11 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-3">
-            Kamu berada di kelas {{}}
+        <div class="col-md-6">
+            <h2>Kamu berada di kelas <b>{{Auth::user()->room->display_name}}</b></h2>
+        </div>
+        <div class="col-md-6">
+            <h2><a href="{{route('unenroll')}}"><button class="btn btn-block btn-danger btn-sm">Un-enroll</button></a></h2>
         </div>
     </div>
 

@@ -26,3 +26,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user/enroll/{id}', 'RoomController@enrollview')->name('enroll.view');
 Route::post('user/enroll/{id}', 'RoomController@enroll')->name('enroll');
+Route::get('user/unenroll', 'RoomController@unenroll')->name('unenroll');

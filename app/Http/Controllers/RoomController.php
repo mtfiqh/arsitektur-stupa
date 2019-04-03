@@ -75,11 +75,18 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
                 Auth::user()->room_id = $id;
                 Auth::user()->save();
 
-                redirect('/user','refresh');
-
+                return redirect('user');
             }else{
-                return redirect()->back()->with();
+                return redirect()->back();
             }
         }
+    }
+
+    public function unenroll(){
+        $user= Auth::user();
+        $user->room_id=null;
+        $user->save();
+
+        return redirect('user');
     }
 }
