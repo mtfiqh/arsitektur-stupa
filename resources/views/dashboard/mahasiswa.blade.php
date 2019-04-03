@@ -59,7 +59,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($semuaKelas as $kelas)
+                            @foreach($datas as $kelas)
                             <tr>
                                 <td>Studio Perencanaan ({{$kelas->nama}})</td>
                                 <td>{{$kelas->smester}}</td>
@@ -77,12 +77,50 @@
 @else
 {{-- jika sudah enroll kelas --}}
 <div class="container-fluid">
-
+    {{-- header informasi kelas dan un-enroll --}}
     <div class="row">
-        <div class="col-md-3">
-            Kamu berada di kelas {{}}
+        <div class="col-md-6">
+            <h2>Kamu berada di kelas <b>{{Auth::user()->room->display_name}}</b></h2>
+        </div>
+        <div class="col-md-6">
+            <h2><a href="{{route('unenroll')}}"><button class="btn btn-block btn-danger btn-sm">Un-enroll</button></a></h2>
         </div>
     </div>
+
+    {{-- penampilan list tugas yang bisa di kumpul oleh mahasiswa --}}
+    @php
+        // get waktu sekarang
+        $timeNow=Carbon\Carbon::now();
+    @endphp
+
+    @foreach($datas as $data)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card col-md-12">
+                <div class="card-header">
+                    <h4>{{$data->title}}</h4>
+
+                </div>
+                <div class="card-body">
+                    {!! $data->description !!}
+                </div>
+
+                <div class="card-footer {{$timeNow < $data->deadline ? 'bg-warning' : 'bg-danger' }}">
+                    @if($timeNow < $data->deadline)
+                        Tersisa
+                    @else
+                        Telah terlewat
+                    @endif
+                    {{$timeNow->diff(new DateTime($data->deadline))->format('%Y Tahun, %m Bulan, %d Hari %H jam %I menit %S detik')}}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @endforeach
+
+
 
 </div>
 
