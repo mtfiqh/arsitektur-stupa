@@ -90,4 +90,11 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
         return redirect('user');
     }
+
+    public function viewKelas(){
+        if(Auth::user()->role->name == "mahasiswa"){
+            $datas = Auth::user()->room_id==null ? \App\Room::orderBy('tahun', 'DESC')->orderBy('smester', 'DESC')->get() : Auth::user()->room->tasks;
+            return view("dashboard.daftar-kelas-mahasiswa", [$datas==null? : "datas"=>$datas]);
+        }
+    }
 }

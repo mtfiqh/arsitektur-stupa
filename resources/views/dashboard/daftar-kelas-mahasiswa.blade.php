@@ -1,4 +1,4 @@
-<!-- @extends('voyager::master')
+@extends('voyager::master')
 
 @section('content')
  {{-- jika belum enroll kelas --}}
@@ -57,7 +57,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($semuaKelas as $kelas)
+                            @foreach($datas as $kelas)
                             <tr>
                                 <td>Studio Perencanaan ({{$kelas->nama}})</td>
                                 <td>{{$kelas->smester}}</td>
@@ -86,4 +86,4 @@
     </div>
 </div>
 @endif 
-@endsection -->
+@endsection
