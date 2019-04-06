@@ -48,7 +48,8 @@
                                         <div class="row">
                                             <div class="col-lg-5 text-xs-right text-lg-left text-truncate"
                                                 style="margin-top:10px;">
-                                                28 Mar, 00:00
+                                                <p>Deadline:</p>
+                                                {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $tugas->deadline)->format('d M Y, H:i')}}
                                             </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
                                                 <a class="btn btn-primary" href="#">Add submission</a>
