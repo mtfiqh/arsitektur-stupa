@@ -97,4 +97,8 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
             return view("dashboard.daftar-kelas-mahasiswa", [$datas==null? : "datas"=>$datas]);
         }
     }
+
+    public function timelinetugas(){
+        return view("dashboard.info-tugas-mahasiswa");
+    }
 }
