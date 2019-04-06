@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user/viewKelas', 'RoomController@viewKelas')->name('viewKelas');
 
-Route::get('user/timelinetugas', 'RoomController@timelinetugas')->name('timelinetugas');
+Route::get('user/timelinetugas', 'TaskController@indexTugas')->name('timelinetugas');
 
 Route::get('user/enroll/{id}', 'RoomController@enrollview')->name('enroll.view');
 Route::post('user/enroll/{id}', 'RoomController@enroll')->name('enroll');

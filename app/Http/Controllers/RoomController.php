@@ -98,7 +98,5 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
         }
     }
 
-    public function timelinetugas(){
-        return view("dashboard.info-tugas-mahasiswa");
-    }
+
 }
