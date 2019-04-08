@@ -37,7 +37,7 @@
                                             <img class="icon "
                                                 src="http://kuliah.itera.ac.id/theme/image.php/boost/assign/1539680338/icon"
                                                 alt="Activity event" title="Activity event">
-                                            <a class="event-name" href="#">{{$tugas->title}}</a>
+                                            <a class="event-name" href="{{route('tugas.kumpul', $tugas->id)}}">{{$tugas->title}}</a>
                                             @foreach($tugas->rooms as $room)
                                             <p class="small text-muted text-truncate m-b-0" style="margin-top:10px;">
                                                 {{$room->display_name}}</p>
@@ -52,7 +52,7 @@
                                                 {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $tugas->deadline)->format('d M Y, H:i')}}
                                             </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
-                                                <a class="btn btn-primary" href="#">Add submission</a>
+                                                <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">Add submission</a>
                                             </div>
                                         </div>
                                     </div>
