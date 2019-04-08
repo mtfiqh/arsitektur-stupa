@@ -15,7 +15,7 @@
         <div class="col-mb-5" style="margin-top:20px" align="center">
             <div class="col-md-3">
                     <div class="card px-2" style="width: 240px; margin-left:1px;">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user.png"  position="center"  alt="Card image" style="width:100%;" >
+                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/user.png')}}"  position="center"  alt="Card image" style="width:100%;" >
                             <div class="card-body px-2" align="left">
                             <h4 class="card-title">Data Mahasiswa</h4>
                                 <p class="card-text">Data Mahasiswa berisi informasi profil mahasiswa</p>
@@ -26,7 +26,7 @@
 
             <div class="col-md-3">
                     <div class="card px-2" style="width: 240px; ">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/Task.png" style="width:100%;"  >
+                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/Task.png')}}" style="width:100%;"  >
                               <div class="card-body px-2" align="left">
                               <h4 class="card-title">Informasi Tugas</h4>
                                 <p class="card-text">Informasi Tugas berisi tentang tugas yang tersedia</p>
@@ -37,7 +37,7 @@
 
             <div class="col-md-3">
                     <div class="card px-2" style="width: 240px; ">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/kelas.png" style="width:100%;"  >
+                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/kelas.png')}}" style="width:100%;"  >
                               <div class="card-body px-2" align="left">
                                  <h4 class="card-title">Data Kelas</h4>
                                 <p class="card-text">Data Kelas berisi informasi tentang kelas studio</p>
