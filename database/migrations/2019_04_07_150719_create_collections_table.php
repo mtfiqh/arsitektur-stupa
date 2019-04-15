@@ -15,7 +15,7 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('path');
+            $table->text('description')->nullable();
             $table->bigInteger('task_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
 
