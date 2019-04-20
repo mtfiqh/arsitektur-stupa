@@ -23,7 +23,7 @@
             <div class="col-md-4">
                     <div class="card" style="16rem;">
                     <div class  = "text-center">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user2.png" alt="Card image" style="width:100%">
+                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user.png" alt="Card image" style="width:100%">
                             <div class="card-body"><h3></h3>
                               <p class="card-text" > </p>
                               <a href="Musik.html" class="card-link" style="font-size:30px;">User</a>
