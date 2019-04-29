@@ -271,5 +271,14 @@ class TaskController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
             'alert-type' => 'success',
         ]);
     }
+    
+    public function indexTugas(){
+        $data=null;
+        if(Auth::user()->room_id!=null){
+            $data =\App\Room::findOrFail(Auth::User()->room_id)->tasks;
+        }
+        return view("dashboard.info-tugas-mahasiswa")->with(['data'=>$data]);
+    }
+
 
 }
