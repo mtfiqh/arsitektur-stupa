@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- @if(Auth::user()->role->name=="admin") --}}
+                    @if(Auth::user()->role->name=="admin")
                         <div class="form-group">
                             <label for="Kelas">{{ __('Kelas') }}</label>
                             @php
@@ -125,7 +125,7 @@
                             @endphp
                             @include('voyager::formfields.relationship')
                         </div>
-                    {{-- @endif --}}
+                    @endif
                 </div>
             </div>
 
