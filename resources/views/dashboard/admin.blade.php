@@ -3,71 +3,77 @@
 @section('content')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-  body {
-    background-color: #FFDF33;
-  }
+img {
+  border-radius: 10%;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding:10px 10px;
+  border-radius: 5%;
+  background-color: #FFF5CC;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 </style>
-
+</head>
 <body>
-      <div class="container-fluid">
-            <div class="row mb-4 mt-4 pt-4">
-                <div class="col text-center">
-                <h1> Dashboard Admin </h1>
-                </div>
-            </div>
+<div class="row">
 
+  <div class="column">
+  <div class="card">
+  <img src="gambar/class.png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>Akun</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+</div>
 
-        <div class="row mb-5" style="margin-top:10px">
-          <div class="col-md-2">
-          </div>
-            <div class="col-md-4">
-                    <div class="card" style="16rem;">
-                    <div class  = "text-center">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user2.png" alt="Card image" style="width:100%">
-                            <div class="card-body"><h3></h3>
-                              <p class="card-text" > </p>
-                              <a href="Musik.html" class="card-link" style="font-size:30px;">User</a>
-                            </div>
-                          </div>
-            </div>
-            </div>
+  <div class="column">
+  <div class="card">
+  <img src="class.png" alt="Avatar" style="width:10%">
+  <div class="container">
+    <h4><b>Kelas</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+</div>
 
-            <div class="col-md-4">
-                    <div class="card"style="18rem;">
-                    <div class  = "text-center">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/kelas.png" style="width:100%" >
-                            <div class="card-body"><h3></h3>
-                              <p class="card-text"></p>
-                              <a href="Pramuka.html" class="card-link"  style="font-size:30px;">Kelas</a>
-                            </div>
-                          </div>
-            </div>
-        </div>
-        </div>
+  <div class="column"><div class="card">
+  <img src="stupe.png" alt="Avatar" style="width:10%">
+  <div class="container">
+    <h4><b>Stupa</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+</div>
 
-        <div class="row mb-5" style="margin-top:10px">
-          <div class="col-md-2">
-          </div>
-          <div class="col-md-8" style="">
-          <div class  = "text-center">
-                <div class="card" style="">
-
-                    <img class="card-img-top rounded-circle img-thumbnail" src="gambar/media.png" style="width:30%">
-                        <div class="card-body"><h3></h3>
-                          <p class="card-text-center"></p>
-                          <a href="Futsal.html" class="card-link" style="font-size:30px;">Media</a>
-                        </div>
-                      </div>
-                      </div>
-          </div>
-        </div>
-
-        
-        <div class="col-md-4">
-                
-        </div>
-
-        </div>
+</div>
 
          <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
