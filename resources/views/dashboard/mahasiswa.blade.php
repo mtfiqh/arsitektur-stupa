@@ -11,37 +11,47 @@
                 </div>
             </div>
 
-
-        <div class="col-mb-5" style="margin-top:20px" align="center">
-            <div class="col-md-3">
-                    <div class="card px-2" style="width: 240px; margin-left:1px;">
+            <div class="row mb-5" style="margin-top:10px">
+          <div class="col-md-2">
+          </div>
+        <div class="col-md-4">
+                    <div class="card" style="16rem;">
+                    <div class  = "text-center">
                         <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/user.png')}}"  position="center"  alt="Card image" style="width:100%;" >
                             <div class="card-body px-2" align="left">
-                            <h4 class="card-title">Data Mahasiswa</h4>
-                                <p class="card-text">Data Mahasiswa berisi informasi profil mahasiswa</p>
-                            <a href="#" class="btn btn-primary">Data Profil</a>
+                            <h4 class="card-title text-center">Data Mahasiswa</h4>
+                                <p class="card-text text-center">Data Mahasiswa berisi informasi profil mahasiswa</p>
+                            <a href="#" class="btn btn-primary center-block">Data Profil</a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-            <div class="col-md-3">
-                    <div class="card px-2" style="width: 240px; ">
+            <div class="col-md-4">
+                <div class="card"style="18rem;">
+                    <div class  = "text-center">
                         <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/task.png')}}" style="width:100%;"  >
                               <div class="card-body px-2" align="left">
-                              <h4 class="card-title">Informasi Tugas</h4>
-                                <p class="card-text">Informasi Tugas berisi tentang tugas yang tersedia</p>
-                                <a href="{{route('timelinetugas')}}" class="btn btn-primary">Informasi Tugas</a>
+                              <h4 class="card-title text-center">Informasi Tugas</h4>
+                                <p class="card-text text-center">Informasi Tugas berisi tentang tugas yang tersedia</p>
+                                <a href="{{route('timelinetugas')}}" class="btn btn-primary center-block">Informasi Tugas</a>
+                            </div>
                         </div>
                     </div>
-            </div>
+                </div>
+        </div>
 
-            <div class="col-md-3">
-                    <div class="card px-2" style="width: 240px; ">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/kelas.png')}}" style="width:100%;"  >
+        <div class="row mb-5" style="margin-top:10px">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-8" style="">
+            <div class  = "text-center">
+                <div class="card" style="">
+                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/kelas.png')}}" style="width:50%;"  >
                               <div class="card-body px-2" align="left">
-                                 <h4 class="card-title">Data Kelas</h4>
-                                <p class="card-text">Data Kelas berisi informasi tentang kelas studio</p>
-                            <a href="{{route('viewKelas')}}" class="btn btn-primary">Data Kelas</a>
+                                 <h4 class="card-title text-center">Data Kelas</h4>
+                                <p class="card-text text-center">Data Kelas berisi informasi tentang kelas studio</p>
+                            <a href="{{route('viewKelas')}}" class="btn btn-primary center-block">Data Kelas</a>
                         </div>
                     </div>
                 </div>

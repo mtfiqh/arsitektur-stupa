@@ -19,7 +19,7 @@
 
         <div class="row mb-5" style="margin-top:10px">
           <div class="col-md-2">
-          </div>
+         </div>
             <div class="col-md-4">
                     <div class="card" style="16rem;">
                     <div class  = "text-center">
