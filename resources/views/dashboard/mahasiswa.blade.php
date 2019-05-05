@@ -26,7 +26,7 @@
 
             <div class="col-md-3">
                     <div class="card px-2" style="width: 240px; ">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/Task.png')}}" style="width:100%;"  >
+                        <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/task.png')}}" style="width:100%;"  >
                               <div class="card-body px-2" align="left">
                               <h4 class="card-title">Informasi Tugas</h4>
                                 <p class="card-text">Informasi Tugas berisi tentang tugas yang tersedia</p>
