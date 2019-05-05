@@ -271,7 +271,7 @@ class TaskController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
             'alert-type' => 'success',
         ]);
     }
-    
+
     public function indexTugas(){
         $data=null;
         if(Auth::user()->room_id!=null){

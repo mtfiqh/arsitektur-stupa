@@ -28,8 +28,9 @@ Route::get('user/enroll', 'RoomController@viewKelas')->name('viewKelas');
 
 Route::get('user/timelinetugas', 'TaskController@indexTugas')->name('timelinetugas');
 Route::get('user/timelinetugas/{id}/kumpul', 'CollectionController@kumpul')->name('tugas.kumpul');
+Route::post('user/timelinetugas/{id}/kumpul', 'CollectionController@post')->name('tugas.post');
+Route::delete('user/deleteFile/', 'CollectionController@deleteFile')->name('tugas.deletefile');
 
 Route::get('user/enroll/{id}', 'RoomController@enrollview')->name('enroll.view');
 Route::post('user/enroll/{id}', 'RoomController@enroll')->name('enroll');
 Route::get('user/unenroll', 'RoomController@unenroll')->name('unenroll');
-
