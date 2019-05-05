@@ -2,22 +2,20 @@
 
 @section('content')
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
 <style>
-img {
-  border-radius: 10%;
+@import "https://fonts.googleapis.com/css?family=Poppins:600";
+body {
+  background-color: lightblue;
 }
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  padding:10px 10px;
-  border-radius: 5%;
-  background-color: #FFF5CC;
+img {
+  border-radius: 6%;
+  cursor: pointer;
 }
 
-.card:hover {
+img:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
 .container {
   padding: 2px 16px;
 }
@@ -29,7 +27,7 @@ img {
 .column {
   float: left;
   width: 30%;
-  padding: 10px;
+  padding: 5px;
   height: 300px; /* Should be removed. Only for demonstration */
 }
 
@@ -39,42 +37,47 @@ img {
   display: table;
   clear: both;
 }
+h2{
+  position: absolute;
+  left : 300px;
+  top  : 150px;
+}
+h3{
+  position : absolute;
+  left : 570px;
+  top : 150px;
+}
+h4{
+  position : absolute;
+  left : 840px;
+  top : 150px;
+}
+h1 {
+  text-align: center;
+  top : 500px;
+  font-family: "Poppins", sans-serif;
+  color: #F3DA32;
+  text-shadow: 2px 2px #111111;
+}
 </style>
 </head>
 <body>
+<h1>Dashboard Admin</h1>
 <div class="row">
-
-  <div class="column">
-  <div class="card">
-  <img src="gambar/class.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>Akun</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+ 
+  <div class="column"><h2>
+  <img src="gambar/group 3.png" alt="Akun" style="width:70%"></h2>
 </div>
 
-  <div class="column">
-  <div class="card">
-  <img src="class.png" alt="Avatar" style="width:10%">
-  <div class="container">
-    <h4><b>Kelas</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+  <div class="column"><h3>
+  <img src="gambar/group 2.png" alt="Kelas" style="width:70%"></h3>
 </div>
 
-  <div class="column"><div class="card">
-  <img src="stupe.png" alt="Avatar" style="width:10%">
-  <div class="container">
-    <h4><b>Stupa</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+  <div class="column"><h4>
+  <img src="gambar/group 1.png" alt="Stupa" style="width:70%"></h4>
 </div>
 
 </div>
-
          <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -93,7 +96,6 @@ img {
   })();
   </script>
   <!--End of Tawk.to Script-->
-
   </body>
 @stop
 
