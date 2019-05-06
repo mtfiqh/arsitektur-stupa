@@ -53,19 +53,21 @@
 
                                                 @php
                                                     $collection = \App\Collection::where('task_id', $tugas->id)->where('user_id', Auth::user()->id)->first();
-                                                    if($collection && $collection->done){
-                                                        Carbon\Carbon::setLocale('id');
-                                                        $diffDalamJam=$collection->updated_at->diffInHours($tugas->deadline);
-                                                        $diff= $collection->updated_at->diffForHumans($tugas->deadline);
+                                                    if($collection){
+                                                        if($collection->done){
+                                                            Carbon\Carbon::setLocale('id');
+                                                            $diffDalamDetik=Carbon\Carbon::parse($tugas->deadline)->diffInSeconds(Carbon\Carbon::parse($collection->updated_at));
+                                                            $diff= $collection->updated_at->diffForHumans($tugas->deadline);
+                                                        }
                                                     }
                                                 @endphp
 
                                                 @if($collection && $collection->done==true)
-                                                    <div class="alert alert-sm alert-{{$diffDalamJam>0 ? 'danger' : 'success'}}">{{$diff}}</div>
+                                                    <div class="alert alert-sm alert-{{$diffDalamJam>0 ? 'danger' : 'success'}}">{{$diff}} {{$diffDalamJam}}</div>
                                                 @endif
                                         </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
-                                                <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">{{$collection->done ? 'Edit Submission' : 'Add submission'}}</a>
+                                                <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">{{$collection && $collection->done ? 'Edit Submission' : 'Add submission'}}</a>
                                             </div>
                                         </div>
                                     </div>
