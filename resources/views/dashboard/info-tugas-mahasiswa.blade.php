@@ -56,14 +56,14 @@
                                                     if($collection){
                                                         if($collection->done){
                                                             Carbon\Carbon::setLocale('id');
-                                                            $diffDalamDetik=Carbon\Carbon::parse($tugas->deadline)->diffInSeconds(Carbon\Carbon::parse($collection->updated_at));
+                                                            // $diffDalamDetik=Carbon\Carbon::parse($tugas->deadline)->diffInSeconds(Carbon\Carbon::parse($collection->updated_at));
                                                             $diff= $collection->updated_at->diffForHumans($tugas->deadline);
                                                         }
                                                     }
                                                 @endphp
 
                                                 @if($collection && $collection->done==true)
-                                                    <div class="alert alert-sm alert-{{$diffDalamJam>0 ? 'danger' : 'success'}}">{{$diff}} {{$diffDalamJam}}</div>
+                                                    <div class="alert alert-sm alert-{{$tugas->deadline<$collection->updated_at ? 'danger' : 'success'}}">{{$diff}}</div>
                                                 @endif
                                         </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
