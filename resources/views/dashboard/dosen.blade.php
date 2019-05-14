@@ -39,11 +39,11 @@
 
             <div class="col-md-4">
                 <div class="card"style="18rem;">
-                    <img class="card-img-top rounded-circle img-thumbnail" src="gambar/media.png" style="width:100%">
+                    <img class="card-img-top rounded-circle img-thumbnail" src="gambar/task.png" style="width:100%">
                         <div class="card-body"><h3></h3>
-                        <h4 class="card-title text-center">Media</h4>
-                                <p class="card-text text-center">Media berisi gambar dari mahasiswa yang telah di upload</p>
-                            <a href="#" class="btn btn-primary center-block">Media</a>
+                        <h4 class="card-title text-center">Daftar Pengumpulan</h4>
+                                <p class="card-text text-center">Melihat semua tugas yang sudah dikumpulkan</p>
+                            <a href="#" class="btn btn-primary center-block">Lihat</a>
                         </div>
                       </div>
             </div>
