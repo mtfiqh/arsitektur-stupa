@@ -13,6 +13,11 @@ class Task extends Model
     {
         return $this->belongsToMany('App\Room');
     }
+    public function collections()
+    {
+        return $this->hasMany('App\Collection');
+    }
+
 
     public function scopeCurrentUser($query)
     {

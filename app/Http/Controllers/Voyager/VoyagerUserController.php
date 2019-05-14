@@ -26,5 +26,55 @@ class VoyagerUserController extends BaseVoyagerUserController
         $this->middleware('isRoleAdmin')->only('index');
     }
 
+    public function update(Request $request, $id)
+    {
+        if (app('VoyagerAuth')->user()->getKey() == $id) {
+            $request->merge([
+                'role_id'                              => app('VoyagerAuth')->user()->role_id,
+                'user_belongsto_role_relationship'     => app('VoyagerAuth')->user()->role_id,
+                'user_belongstomany_role_relationship' => app('VoyagerAuth')->user()->roles->pluck('id')->toArray(),
+            ]);
+        }
+
+        $slug = $this->getSlug($request);
+
+        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+
+        // Compatibility with Model binding.
+        $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
+
+        $model = app($dataType->model_name);
+        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+            $model = $model->{$dataType->scope}();
+        }
+        if ($model && in_array(SoftDeletes::class, class_uses($model))) {
+            $data = $model->withTrashed()->findOrFail($id);
+        } else {
+            $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+        }
+
+        // Check permission
+        $this->authorize('edit', $data);
+
+        // Validate fields with ajax
+        $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
+        $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
+
+        event(new BreadDataUpdated($dataType, $data));
+        if(Auth::user()->role->name=="mahasiswa" || Auth::user()->role->name=="dosen"){
+            return redirect()
+            ->route("voyager.{$dataType->slug}.edit", Auth::user()->id)
+            ->with([
+                'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
+        }
+        return redirect()
+        ->route("voyager.{$dataType->slug}.index")
+        ->with([
+            'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
+            'alert-type' => 'success',
+        ]);
+    }
 
 }

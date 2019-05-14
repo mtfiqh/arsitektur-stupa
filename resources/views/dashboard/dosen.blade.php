@@ -17,10 +17,11 @@
 
             <div class="col-md-4">
                     <div class="card" style="16rem;">
-                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user2.png" alt="Card image" style="width:100%">
+                        <img class="card-img-top rounded-circle img-thumbnail" src="gambar/user.png" alt="Card image" style="width:100%">
                             <div class="card-body"><h3></h3>
-                              <p class="card-text" > </p>
-                              <a href="Musik.html" class="card-link" style="font-size:30px;">User</a>
+                            <h4 class="card-title text-center">List Mahasiswa</h4>
+                                <p class="card-text text-center">List Mahasiswa berisi informasi siswa yang terdaftar dimasing masing kelas</p>
+                            <a href="#" class="btn btn-primary center-block">List Mahasiswa</a>
                             </div>
                           </div>
             </div>
@@ -29,18 +30,20 @@
                     <div class="card"style="18rem;">
                         <img class="card-img-top rounded-circle img-thumbnail" src="gambar/kelas.png" style="width:100%" >
                             <div class="card-body"><h3></h3>
-                              <p class="card-text"></p>
-                              <a href="Pramuka.html" class="card-link"  style="font-size:30px;">Kelas</a>
+                            <h4 class="card-title text-center">Kelas</h4>
+                                <p class="card-text text-center">Kelas berisi informasi kelas yang terdaftar di Matakuliah STUPA</p>
+                            <a href="#" class="btn btn-primary center-block">Kelas</a>
                             </div>
                           </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card"style="18rem;">
-                    <img class="card-img-top rounded-circle img-thumbnail" src="gambar/media.png" style="width:100%">
+                    <img class="card-img-top rounded-circle img-thumbnail" src="gambar/task.png" style="width:100%">
                         <div class="card-body"><h3></h3>
-                          <p class="card-text-center"></p>
-                          <a href="Futsal.html" class="card-link" style="font-size:30px;">Media</a>
+                        <h4 class="card-title text-center">Daftar Pengumpulan</h4>
+                                <p class="card-text text-center">Melihat semua tugas yang sudah dikumpulkan</p>
+                            <a href="#" class="btn btn-primary center-block">Lihat</a>
                         </div>
                       </div>
             </div>

@@ -26,8 +26,8 @@
                     <div class="card-body" align="left">
 
                         <ul class="list-group">
-                            <li class="list-group-item disabled">Course Overview</li>   
-                            
+                            <li class="list-group-item disabled">Course Overview</li>
+
                             {{-- start looping --}}
                             @foreach($data as $tugas)
                             <li class="list-group-item">
@@ -50,9 +50,24 @@
                                                 style="margin-top:10px;">
                                                 <p>Deadline:</p>
                                                 {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $tugas->deadline)->format('d M Y, H:i')}}
-                                            </div>
+
+                                                @php
+                                                    $collection = \App\Collection::where('task_id', $tugas->id)->where('user_id', Auth::user()->id)->first();
+                                                    if($collection){
+                                                        if($collection->done){
+                                                            Carbon\Carbon::setLocale('id');
+                                                            // $diffDalamDetik=Carbon\Carbon::parse($tugas->deadline)->diffInSeconds(Carbon\Carbon::parse($collection->updated_at));
+                                                            $diff= $collection->updated_at->diffForHumans($tugas->deadline);
+                                                        }
+                                                    }
+                                                @endphp
+
+                                                @if($collection && $collection->done==true)
+                                                    <div class="alert alert-sm alert-{{$tugas->deadline<$collection->updated_at ? 'danger' : 'success'}}">{{$diff}}</div>
+                                                @endif
+                                        </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
-                                                <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">Add submission</a>
+                                                <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">{{$collection && $collection->done ? 'Edit Submission' : 'Add submission'}}</a>
                                             </div>
                                         </div>
                                     </div>

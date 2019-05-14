@@ -37,6 +37,6 @@ class Room extends Model
 
     public function tasks()
     {
-        return $this->belongsToMany('App\Task');
+        return $this->belongsToMany('App\Task')->orderBy('created_at','desc');
     }
 }
