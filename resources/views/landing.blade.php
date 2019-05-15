@@ -13,8 +13,8 @@
 
 <!-- <link rel="stylesheet" href="{{ url('/assets/css/grid.css') }}" media="screen"> -->
 <link rel="stylesheet" href="{{ url('/assets/css/style.css') }}" media="screen">
-<!-- <link rel="stylesheet" href="{{ url('/assets/css/animate.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/plugin/font-awesome/css/font-awesome.css') }}" media="screen"> -->
+<link rel="stylesheet" href="{{ url('/assets/css/animate.css') }}" media="screen">
+<link rel="stylesheet" href="{{ url('/assets/plugin/font-awesome/css/font-awesome.css') }}" media="screen">
 <link rel="stylesheet" href="{{ url('/css/normalize.css') }}" media="screen">
 <link rel="stylesheet" href="{{ url('/css/style.css') }}" media="screen">
 @endsection
@@ -29,7 +29,7 @@
             <div id="content" class="grid_12">
                 <h1>Sistem Informasi Studio Perencanaan</h1>
                 <h1>Arsitektur</h1>
-                <h2>Institut Teknologi Sumatera</h2>
+                <h1>Institut Teknologi Sumatera</h1>
             </div>
         </center>
     </div>
