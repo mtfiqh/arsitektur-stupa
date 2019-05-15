@@ -1,11 +1,6 @@
 /* Global */
 
 body {
-	font-family: 'Lato Regular', sans-serif;
-	font-weight: 400;
-	font-size: 1em;
-	color: #8a8683;
-	background-color:#ffffff;
 }
 img {
 	max-width: 100%;
@@ -140,7 +135,6 @@ a:link {
   padding-bottom: 1em;
 }
 #slide1 h2 {
-	font-size: 3.8em;
 	color: #cccccc;
 	line-height: 0px;
 	padding-bottom:20px;
@@ -397,11 +391,7 @@ a:link {
   text-align: center;
 }
 #blogs h1 {
-  font-size: 3.8em;
-  letter-spacing: -3px;
-  line-height: 0px;
   color:#8a8683;
-  font-weight: 700;
 }
 #blogs h2 {
   font-size: 2em;

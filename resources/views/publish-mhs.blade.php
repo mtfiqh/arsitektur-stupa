@@ -1,48 +1,23 @@
-{{--
-<link rel="stylesheet" href="{{ url('/assets/css/normalize.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/css/grid.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/css/style.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/css/animate.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/plugin/font-awesome/css/font-awesome.css') }}" media="screen"> --}}
-<!-- <link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen"> -->
-<!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 @extends('app.app')
 
 @section('additional-css')
-
-<!-- <link rel="stylesheet" href="{{ url('/assets/css/grid.css') }}" media="screen"> -->
-<link rel="stylesheet" href="{{ url('/assets/css/style.css') }}" media="screen">
-<!-- <link rel="stylesheet" href="{{ url('/assets/css/animate.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url('/assets/plugin/font-awesome/css/font-awesome.css') }}" media="screen"> -->
 <link rel="stylesheet" href="{{ url('/css/normalize.css') }}" media="screen">
 <link rel="stylesheet" href="{{ url('/css/style.css') }}" media="screen">
 @endsection
-
-
-
 @section('content')
-
-<div class="slide" id="slide1" data-slide="7" data-stellar-background-ratio="0.5" >
-    <div class="container clearfix">
-        <center>
-            <div id="content" class="grid_12">
-                <h1>Sistem Informasi Studio Perencanaan</h1>
-                <h1>Arsitektur</h1>
-                <h2>Institut Teknologi Sumatera</h2>
-            </div>
-        </center>
-    </div>
-</div>
-
-
-
-<div class="slide" id="blogs" data-slide="2" data-stellar-background-ratio="0.5">
-    <div class="container clearfix">
-
-        <h2>Blogs</h2>
-        <p class="heading"></p>
-        <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+	<!-- <head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="normalize.css">
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+	</head> -->
+	<body>
+		<div class="container">
 			<ul class="content-columns">
 				<li>
 					<article class="boxed">
@@ -162,39 +137,6 @@
 
   			</ul>
 		</div>
-    </div>
-</div>
-
-<!-- <div class="slide" id="contact" data-slide="3" data-stellar-background-ratio="0.5">
-    <div class="container clearfix">
-
-        <h2>About</h2>
-        <p class="heading"></p>
-        <div>
-            <div class="grid_0 omega">
-                <p></p>
-                <p></p>
-            </div>
-        </div>
-
-    </div>
-</div> -->
-
-
-<footer>
-    <div class="container clearfix">
-        <center>
-            <li style="font-size: 15px; font-family: inherit; letter-spacing: 0px;">Develop By Teknik Informatika</li>
-        </center>
-    </div>
-</footer>
-@endsection
-
-@section('additional-js')
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="{{ url('/assets/js/jquery.stellar.min.js') }}"></script>
-<script src="{{ url('/assets/js/waypoints.min.js') }}"></script>
-<script src="{{ url('/assets/js/jquery.easing.1.3.js') }}"></script>
-<script src="{{ url('/assets/js/scripts.js') }}"></script>
-<script type="text/javascript" src="{{ url('/assets/js/scripts.min.js') }}"></script>
+	</body>
+</html>
 @endsection

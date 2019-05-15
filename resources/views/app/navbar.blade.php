@@ -8,7 +8,12 @@
 
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
-
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Studio Perencanaan Arsitektur <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#blogs">Blogs</a>
+            </li>
         </ul>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             @hasSection ('nav-landing')
@@ -16,8 +21,9 @@
             @endif
         </div>
 
+
         @guest
-        <a class="btn btn-primary" href="{{route('login')}}" role="button">Masuk</a>
+        <a class="btn btn-primary" href="{{route('login')}}" role="button">Login</a>
         @else
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
