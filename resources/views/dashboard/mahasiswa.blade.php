@@ -21,7 +21,7 @@
                             <div class="card-body px-2" align="left">
                             <h4 class="card-title text-center">Profil Mahasiswa</h4>
                                 <p class="card-text text-center">Data Mahasiswa berisi informasi profil mahasiswa</p>
-                            <a href="#" class="btn btn-primary center-block">Profile Mahasiswa</a>
+                            <a href="{{route('voyager.profile')}}" class="btn btn-primary center-block">Profile Mahasiswa</a>
                             </div>
                         </div>
                     </div>
