@@ -19,9 +19,9 @@
                     <div class  = "text-center">
                         <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/user.png')}}"  position="center"  alt="Card image" style="width:100%;" >
                             <div class="card-body px-2" align="left">
-                            <h4 class="card-title text-center">Data Mahasiswa</h4>
+                            <h4 class="card-title text-center">Profil Mahasiswa</h4>
                                 <p class="card-text text-center">Data Mahasiswa berisi informasi profil mahasiswa</p>
-                            <a href="#" class="btn btn-primary center-block">Data Profil</a>
+                            <a href="{{route('voyager.profile')}}" class="btn btn-primary center-block">Profile Mahasiswa</a>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                 <div class="card" style="">
                         <img class="card-img-top rounded-circle img-thumbnail" src="{{asset('gambar/kelas.png')}}" style="width:50%;"  >
                               <div class="card-body px-2" align="left">
-                                 <h4 class="card-title text-center">Data Kelas</h4>
+                                 <h4 class="card-title text-center">Kelas</h4>
                                 <p class="card-text text-center">Data Kelas berisi informasi tentang kelas studio</p>
                             <a href="{{route('viewKelas')}}" class="btn btn-primary center-block">Data Kelas</a>
                         </div>

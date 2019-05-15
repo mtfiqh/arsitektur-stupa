@@ -26,6 +26,13 @@ class VoyagerUserController extends BaseVoyagerUserController
         $this->middleware('isRoleAdmin')->only('index');
     }
 
+    public function index(Request $request){
+        if(Auth::user()->role->name!="admin"){
+            return redirect()->route("voyager.profile");
+        }
+        return parent::index($request);
+    }
+
     public function update(Request $request, $id)
     {
         if (app('VoyagerAuth')->user()->getKey() == $id) {

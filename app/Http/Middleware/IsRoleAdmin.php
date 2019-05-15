@@ -20,7 +20,7 @@ class IsRoleAdmin
             if(Auth::user()->role->name=="admin"){
                 return $next($request);
             }
-            return redirect('/user/users/'.Auth::user()->id.'/edit');
+            return redirect()->route("voyager.profile");
         }
     }
 }

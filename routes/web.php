@@ -24,7 +24,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('user/enroll', 'RoomController@viewKelas')->name('viewKelas');
+
+
 
 Route::get('user/timelinetugas', 'TaskController@indexTugas')->name('timelinetugas');
 Route::get('user/timelinetugas/{id}/kumpul', 'CollectionController@kumpul')->name('tugas.kumpul');

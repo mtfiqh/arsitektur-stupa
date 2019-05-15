@@ -71,16 +71,16 @@
                                     @endphp
                                     @include('voyager::formfields.relationship')
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="additional_roles">{{ __('voyager::profile.roles_additional') }}</label>
                                     @php
                                         $row     = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
                                         $options = $row->details;
                                     @endphp
                                     @include('voyager::formfields.relationship')
-                                </div>
+                                </div> -->
                             @endcan
-                            @php
+                            <!-- @php
                             if (isset($dataTypeContent->locale)) {
                                 $selected_locale = $dataTypeContent->locale;
                             } else {
@@ -96,7 +96,7 @@
                                     {{ ($locale == $selected_locale ? 'selected' : '') }}>{{ $locale }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
