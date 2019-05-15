@@ -80,7 +80,7 @@
                                     @include('voyager::formfields.relationship')
                                 </div>
                             @endcan
-                            @php
+                            <!-- @php
                             if (isset($dataTypeContent->locale)) {
                                 $selected_locale = $dataTypeContent->locale;
                             } else {
@@ -96,7 +96,7 @@
                                     {{ ($locale == $selected_locale ? 'selected' : '') }}>{{ $locale }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
