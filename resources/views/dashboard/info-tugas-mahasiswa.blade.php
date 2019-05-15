@@ -67,7 +67,11 @@
                                                 @endif
                                         </div>
                                             <div class="text-lg-left col-lg-5 text-truncate " style="margin-top:5px;">
+                                            @if(!$tugas->status || ($tugas->close_after_deadline && \Carbon\Carbon::now() > $tugas->deadline))
+                                                <a class="btn btn-warning" href="{{route('tugas.kumpul', $tugas->id)}}">View Submission</a>                                                
+                                            @else
                                                 <a class="btn btn-primary" href="{{route('tugas.kumpul', $tugas->id)}}">{{$collection && $collection->done ? 'Edit Submission' : 'Add submission'}}</a>
+                                            @endif
                                             </div>
                                         </div>
                                     </div>

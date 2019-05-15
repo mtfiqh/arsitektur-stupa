@@ -238,6 +238,8 @@ class TaskController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
 
     public function update(Request $request, $id)
     {
+        $request->close_after_deadline = $request->close_after_deadline=="on" ? true : false;
+        $request->status = $request->status=="on" ? true : false;
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();

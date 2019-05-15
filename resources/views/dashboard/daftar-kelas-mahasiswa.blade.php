@@ -81,9 +81,32 @@
             <h2>Kamu berada di kelas <b>{{Auth::user()->room->display_name}}</b></h2>
         </div>
         <div class="col-md-6">
-            <h2><a href="{{route('unenroll')}}"><button class="btn btn-block btn-danger btn-sm">Un-enroll</button></a></h2>
+                <button class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >Un-enroll</button>
+            {{-- <h2><a href="{{route('unenroll')}}"><button class="btn btn-block btn-danger btn-sm">Un-enroll</button></a></h2> --}}
         </div>
     </div>
+
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Yakin ingin enroll?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Apakah kamu yakin untuk melakukan enroll dari kelas <b>{{Auth::user()->room->display_name}}</b> ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                <a href="{{route('unenroll')}}"><button type="button" class="btn btn-danger">Yakin</button></a>        
+            </div>
+          </div>
+      
+        </div>
+      </div>
 </div>
 @endif 
 @endsection

@@ -1,6 +1,35 @@
 @extends('voyager::master')
 
 @section('content')
+@if(!$tugas->status || ($tugas->close_after_deadline && \Carbon\Carbon::now() > $tugas->deadline))
+<div class="row col-md-12">
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                        <label>List Files</label><br />
+                        <table class="table">
+                            <thead>
+                                <th>Nama File</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                            @foreach($collection->files as $file)
+                                <tr id="file_{{$file->id}}">
+                                    <td>{{$file->name}}</td>
+                                    <td>
+                                        <a target="_blank" href="{{Storage::url($file->path)}}"><button type="button" class="btn btn-primary btn-sm">Download</button></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@else
 <div class="row col-md-12">
     <div class="container">
         <div class="row">
@@ -58,6 +87,7 @@
         </div>
     </div>
 </div>
+@endif
 @endsection
 
 @section('javascript')

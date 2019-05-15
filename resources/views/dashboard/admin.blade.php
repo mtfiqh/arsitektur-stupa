@@ -27,7 +27,7 @@
                             <div class="card-body"><h3></h3>
                             <h4 class="card-title text-center">Data Mahasiswa</h4>
                                 <p class="card-text text-center">Data Mahasiswa berisi informasi profil mahasiswa</p>
-                            <a href="#" class="btn btn-primary center-block">Data Profil</a>
+                            <a href="{{route('voyager.users.index')}}" class="btn btn-primary center-block">Data Profil</a>
                             </div>
                           </div>
             </div>
@@ -40,7 +40,7 @@
                             <div class="card-body"><h3></h3>
                             <h4 class="card-title text-center">Informasi Kelas</h4>
                                 <p class="card-text text-center">Informasi Kelas berisi tentang tugas yang tersedia</p>
-                            <a href="#" class="btn btn-primary center-block">Informasi Kelas</a>
+                            <a href="{{route('voyager.rooms.index')}}" class="btn btn-primary center-block">Informasi Kelas</a>
                             </div>
                           </div>
             </div>

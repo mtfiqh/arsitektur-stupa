@@ -17,7 +17,7 @@
                     @foreach ($collection->files as $file)
                     <tr>
                         <td>{{$file->name}}</td>
-                        <td><a href="{{ asset('public/'.$file->path) }}"><button class="btn btn-primary" type="button">Download</button></a></td>
+                        <td><a href="{{Storage::url($file->path)}}"><button class="btn btn-primary" type="button">Download</button></a></td>
                     </tr>
                     @endforeach
                 </tbody>

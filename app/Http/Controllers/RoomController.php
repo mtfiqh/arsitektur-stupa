@@ -37,6 +37,7 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
      */
     public function store(Request $request)
     {
+        // dd($request);
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -45,6 +46,21 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
         $this->authorize('add', app($dataType->model_name));
 
         // Validate fields with ajax
+        if($request->smester<=0){
+            return redirect()
+        ->back()
+        ->with([
+                'message'    => __('Smester tidak bisa kurang dari sama dengan 0'),
+                'alert-type' => 'error',
+                'dataTypeContent' => 
+                    [
+                        'nama' => $request->nama,
+                        'tahun' => $request->tahun,
+                        'smester'=>$request->smester,
+                        'password'=> $request->password,
+                    ],
+            ]);
+        }
         $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
         $data->display_name = $request->nama.' '.$request->tahun.' smester '.$request->smester;
@@ -75,9 +91,15 @@ class RoomController extends \TCG\Voyager\Http\Controllers\VoyagerBaseController
                 Auth::user()->room_id = $id;
                 Auth::user()->save();
 
-                return redirect('user');
+                return redirect('user')->with([
+                    'message' => 'Berhasil melakukan enroll',
+                    'alert-type' => 'success'
+                ]);;
             }else{
-                return redirect()->back();
+                return redirect()->back()->with([
+                    'message' => 'password enroll salah',
+                    'alert-type' => 'error'
+                ]);
             }
         }
     }
