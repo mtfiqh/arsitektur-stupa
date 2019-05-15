@@ -68,4 +68,8 @@ class CollectionController extends Controller
         }
 
     }
+
+    public function viewAdmin(){
+
+    }
 }

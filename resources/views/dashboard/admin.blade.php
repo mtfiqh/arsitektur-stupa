@@ -56,18 +56,18 @@
 
                     <img class="card-img-top rounded-circle img-thumbnail" src="gambar/media.png" style="width:30%">
                         <div class="card-body"><h3></h3>
-                        <h4 class="card-title text-center">Media</h4>
-                                <p class="card-text text-center">Media berisi Gambar karya mahasiswa</p>
-                            <a href="#" class="btn btn-primary center-block">Media</a>
+                        <h4 class="card-title text-center">Lihat Tugas</h4>
+                                <p class="card-text text-center">List Tugas untuk melihat semua tugas yang dikumpulkan oleh mahasiswa</p>
+                                <a href="{{route('admin.tasks.rooms')}}" class="btn btn-primary center-block">Lihat</a>
                         </div>
                       </div>
                       </div>
           </div>
         </div>
 
-        
+
         <div class="col-md-4">
-                
+
         </div>
 
         </div>

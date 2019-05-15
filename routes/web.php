@@ -34,3 +34,10 @@ Route::delete('user/deleteFile/', 'CollectionController@deleteFile')->name('tuga
 Route::get('user/enroll/{id}', 'RoomController@enrollview')->name('enroll.view');
 Route::post('user/enroll/{id}', 'RoomController@enroll')->name('enroll');
 Route::get('user/unenroll', 'RoomController@unenroll')->name('unenroll');
+
+Route::group(['prefix' => 'user/semuaTugas'], function () {
+    Route::get('', 'AdminController@viewAllRooms')->name('admin.tasks.rooms');
+    Route::get('{id}', 'AdminController@viewAllTasks')->name('admin.tasks.tasks');
+    Route::get('{id}/{id2}', 'AdminController@viewAllCollections')->name('admin.tasks.collections');
+
+});
