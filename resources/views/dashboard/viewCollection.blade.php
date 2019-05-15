@@ -2,34 +2,43 @@
 
 @section('content')
 <div class="container-fluid" style="margin-top:20px">
+    <h2>Tugas dari {{$collection->user->name}}</h2>
     <div class=" card">
         <div class="card-body">
-
+            <h3>List Files</h3>
             <table id="example" class="table dataTables_wrapper form-inline dt-bootstrap no-footer  table-borderless">
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>Deadline</th>
-                        <th>dibuat pada</th>
+                        <th>Download</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tasks as $task)
+                    @foreach ($collection->files as $file)
                     <tr>
-                        <td><a href="{{route('admin.tasks.collections',['id'=> Request::segment(3), 'id2'=>$task->id])}}">{{$task->title}}</a></td>
-                        <td>{{$task->deadline}}</td>
-                        <td>{{$task->created_at}}</td>
+                        <td>{{$file->name}}</td>
+                        <td><a href="{{ asset('public/'.$file->path) }}"><button class="btn btn-primary" type="button">Download</button></a></td>
                     </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Nama</th>
-                        <th>Deadline</th>
-                        <th>dibuat pada</th>
+                        <th>Download</th>
                     </tr>
                 </tfoot>
             </table>
+        </div>
+
+        <div class="card-body">
+            <h3>Deskripsi Tambahan</h3>
+            <div class="container">
+                @if($collection->description==null)
+                    Tidak ada deskripsi Tambahan
+                @else
+                    {!!$collection->description!!}
+                @endif
+            </div>
         </div>
     </div>
 

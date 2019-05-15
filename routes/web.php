@@ -39,5 +39,5 @@ Route::group(['prefix' => 'user/semuaTugas'], function () {
     Route::get('', 'AdminController@viewAllRooms')->name('admin.tasks.rooms');
     Route::get('{id}', 'AdminController@viewAllTasks')->name('admin.tasks.tasks');
     Route::get('{id}/{id2}', 'AdminController@viewAllCollections')->name('admin.tasks.collections');
-
+    Route::get('{id}/{id2}/{id3}', 'AdminController@viewCollection')->name('admin.tasks.collection');
 });
