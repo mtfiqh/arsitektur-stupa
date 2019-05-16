@@ -36,7 +36,7 @@
 </div>
 
 
-
+@if(Auth::check())
 <div class="slide" id="blogs" data-slide="2" data-stellar-background-ratio="0.5">
     <div class="container clearfix">
 
@@ -44,127 +44,25 @@
         <p class="heading"></p>
         <div class="container">
 			<ul class="content-columns">
+                @foreach ($posts as $post)
 				<li>
 					<article class="boxed">
-						 <img src="img/1.jpg" alt="">
+						 <img src="{{Storage::url($post->image)}}" alt="">
 						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
+                            <h1><a href="{{route('blog',$post->id)}}">{{$post->title}}</a></h1>
+						 	<p> {{$post->meta_description}} </p>
 						 </div>
 					</article>
 				</li>
-				<li>
-					<article class="boxed">
-						 <img src="img/2.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						 <img src="img/3.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<!--  -->
-
-				<li>
-					<article class="boxed">
-						 <img src="img/4.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						<img src="img/5.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						 <img src="img/6.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<!--  -->
-
-				<li>
-					<article class="boxed">
-						 <img src="img/7.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						<img src="img/8.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						 <img src="img/9.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<!--  -->
-
-				<li>
-					<article class="boxed">
-						<img src="img/10.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						<img src="img/11.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
-				<li>
-					<article class="boxed">
-						 <img src="img/12.jpg" alt="">
-						 <div class="description">
-						 	<h1>Gummi bears halvah powder jelly-o liquorice cookie bonbon.</h1>
-						 	<p> Candy canes cheesecake topping bonbon chocolate bar chupa chups jelly tart. Apple pie fruitcake gingerbread chocolate bar sugar plum.  </p>
-						 </div>
-					</article>
-				</li>
+                @endforeach
 
 
-  			</ul>
+            </ul>
+            <center>{{$posts->Links()}}</center>
 		</div>
     </div>
 </div>
-
+@endif
 <!-- <div class="slide" id="contact" data-slide="3" data-stellar-background-ratio="0.5">
     <div class="container clearfix">
 

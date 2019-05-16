@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use TCG\Voyager\Models\Post;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts=Post::paginate(12);
+        return view('landing', ['posts'=>$posts]);
+    }
+
+    public function blog($id)
+    {
+        $post=Post::findOrFail($id);
+        return view('blog', ["post"=>$post]);
     }
 }

@@ -12,7 +12,7 @@
                 <a class="nav-link" href="#">Studio Perencanaan Arsitektur <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#blogs">Blogs</a>
+                <a class="nav-link" href="{{url('/#blogs')}}">Blogs</a>
             </li>
         </ul>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

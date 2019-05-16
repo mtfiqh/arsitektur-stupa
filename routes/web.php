@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
-
+Route::get('/', 'HomeController@index')->name('landing');
+Route::get('/blog/{id}', 'HomeController@blog')->name('blog');
 
 Route::group(['prefix' => 'user'], function () {
     Voyager::routes();

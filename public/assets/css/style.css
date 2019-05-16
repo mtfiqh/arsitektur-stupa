@@ -34,8 +34,8 @@ a:link {
 .menu {
 	position:fixed;
 	top:0px;
-	width:100%; 
-	height:10%; 
+	width:100%;
+	height:10%;
 	background-color:#ffffff;
 	z-index:100;
 }
@@ -107,7 +107,7 @@ a:link {
 
 
 
-/* General Slides */ 
+/* General Slides */
 
 .slide{
 	background-attachment: fixed;
@@ -119,12 +119,12 @@ a:link {
 
 
 
-/* Slide 1 */ 
+/* Slide 1 */
 
 #slide1{
-	background: url(../images/bg.jpg);
+	background: url(../../img/bg_login.jpg);
 	-webkit-background-size:cover;
-        -moz-background-size:cover;    
+        -moz-background-size:cover;
     background-size:cover;
     color: #ffffff;
     padding:280px 0;
@@ -152,7 +152,7 @@ a:link {
 
 
 
-/* Slide 2 */ 
+/* Slide 2 */
 
 #services{
 	background-color:#ffffff;
@@ -186,17 +186,17 @@ a:link {
 	transition:0.3s;
 }
 #services .grid_3:hover .fa{
-	color:#1abc9c; 
+	color:#1abc9c;
 }
 
 
 
-/* Slide 3 */ 
+/* Slide 3 */
 
 #about{
 	background:url(../images/bg-featured.jpg);
 	-webkit-background-size:cover;
-        -moz-background-size:cover;    
+        -moz-background-size:cover;
     background-size:cover;
     color: #ffffff;
 }
@@ -263,7 +263,7 @@ a:link {
 	color: #ffffff;
 }
 
-/* Slide 4 */ 
+/* Slide 4 */
 
 #skill{
   background-color:#ffffff;
@@ -292,7 +292,7 @@ a:link {
   margin-bottom: 70px;
 }
 
-/* Slide 5 */ 
+/* Slide 5 */
 
 #portfolio{
   background-color:#eaeaea;
@@ -324,7 +324,7 @@ a:link {
   border-radius: 4px;
 }
 
-/* Slide 5 */ 
+/* Slide 5 */
 
 #client{
   background-color:#ffffff;
@@ -354,12 +354,12 @@ a:link {
   margin-bottom: 70px;
 }
 
-/* Slide 5 */ 
+/* Slide 5 */
 
 #testimonials{
   background:url(../images/bg-testimonial.jpg);
   -webkit-background-size:cover;
-        -moz-background-size:cover;    
+        -moz-background-size:cover;
     background-size:cover;
   color:#ffffff;
   text-align: center;
@@ -389,7 +389,7 @@ a:link {
   margin-bottom: -280px;
 }
 
-/* Slide 6 */ 
+/* Slide 6 */
 
 #blogs{
   background-color:#eaeaea;
@@ -397,7 +397,7 @@ a:link {
   text-align: center;
 }
 #blogs h1 {
-  
+
 
   color:#8a8683;
 }
@@ -508,12 +508,12 @@ transition:0.3s;
     opacity: 1;
 }
 
-/* Slide 6 */ 
+/* Slide 6 */
 
 #subscribe{
   background:url(../images/bg-subscribe.jpg);
   -webkit-background-size:cover;
-        -moz-background-size:cover;    
+        -moz-background-size:cover;
     background-size:cover
   color:#ffffff;
   text-align: center;
@@ -551,7 +551,7 @@ transition:0.3s;
           box-shadow: none;
 }
 
-/* Slide 7 */ 
+/* Slide 7 */
 
 #contact{
   background-color:#ffffff;
