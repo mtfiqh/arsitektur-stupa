@@ -67,13 +67,23 @@ class VoyagerUserController extends BaseVoyagerUserController
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
+        if(Auth::user()->role->name=="admin"){
 
-        return redirect()
-        ->route("voyager.{$dataType->slug}.index")
-        ->with([
-            'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
-            'alert-type' => 'success',
-        ]);
+            return redirect()
+            ->route("voyager.{$dataType->slug}.index")
+            ->with([
+                'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
+        }else{
+            return redirect()
+            ->route("voyager.profile")
+            ->with([
+                'message'    => __('Update data berhasil'),
+                'alert-type' => 'success',
+            ]);
+            
+        }
     }
 
 }

@@ -1,6 +1,8 @@
 @extends('voyager::master')
 
 @section('content')
+@php $who=Auth::user()->role->name; @endphp
+
 <div class="container-fluid" style="margin-top:20px">
     <div class=" card">
         <div class="card-body">
@@ -17,7 +19,7 @@
                 <tbody>
                     @foreach ($collections as $collection)
                     <tr>
-                        <td><a href="{{route('admin.tasks.collection',['id'=> Request::segment(3), 'id2'=>$task->id, 'id3'=>$collection->id])}}">{{$collection->user->name}}</a></td>
+                        <td><a href="{{route($who.'.tasks.collection',['id'=> Request::segment(3), 'id2'=>$task->id, 'id3'=>$collection->id])}}">{{$collection->user->name}}</a></td>
                         <td>{{$collection->user->identity}}</td>
                         <td>{{$collection->updated_at}}</td>
                         <td>{{$collection->updated_at->diffForHumans($task->deadline)}}</td>

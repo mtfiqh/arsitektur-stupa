@@ -1,6 +1,7 @@
 @extends('voyager::master')
 
 @section('content')
+@php $who=Auth::user()->role->name; @endphp
 <div class="container-fluid" style="margin-top:20px">
     <div class=" card">
         <div class="card-body">
@@ -17,7 +18,7 @@
                 <tbody>
                     @foreach ($rooms as $room)
                     <tr>
-                        <td><a href="{{route('admin.tasks.tasks',$room->id)}}">{{$room->display_name}}</a></td>
+                        <td><a href="{{route($who.'.tasks.tasks',$room->id)}}">{{$room->display_name}}</a></td>
                         <td>{{$room->nama}}</td>
                         <td>{{$room->smester}}</td>
                         <td>{{$room->tahun}}</td>

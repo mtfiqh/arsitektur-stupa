@@ -2,7 +2,6 @@
 
 @section('content')
 @php $who=Auth::user()->role->name; @endphp
-
 <div class="container-fluid" style="margin-top:20px">
     <div class=" card">
         <div class="card-body">
@@ -10,25 +9,28 @@
             <table id="example" class="table dataTables_wrapper form-inline dt-bootstrap no-footer  table-borderless">
                 <thead>
                     <tr>
+                        <th>Nama Tampilan</th>
                         <th>Nama</th>
-                        <th>Deadline</th>
-                        <th>dibuat pada</th>
+                        <th>Smester</th>
+                        <th>Tahun</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tasks as $task)
+                    @foreach ($rooms as $room)
                     <tr>
-                        <td><a href="{{route($who.'.tasks.collections',['id'=> Request::segment(3), 'id2'=>$task->id])}}">{{$task->title}}</a></td>
-                        <td>{{$task->deadline}}</td>
-                        <td>{{$task->created_at}}</td>
+                        <td><a href="{{route('dosen.mahasiswa.mahasiswa',$room->id)}}">{{$room->display_name}}</a></td>
+                        <td>{{$room->nama}}</td>
+                        <td>{{$room->smester}}</td>
+                        <td>{{$room->tahun}}</td>
                     </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Nama Tampilan</th>
                         <th>Nama</th>
-                        <th>Deadline</th>
-                        <th>dibuat pada</th>
+                        <th>Smester</th>
+                        <th>Tahun</th>
                     </tr>
                 </tfoot>
             </table>

@@ -21,7 +21,7 @@
                             <div class="card-body"><h3></h3>
                             <h4 class="card-title text-center">List Mahasiswa</h4>
                                 <p class="card-text text-center">List Mahasiswa berisi informasi siswa yang terdaftar dimasing masing kelas</p>
-                            <a href="#" class="btn btn-primary center-block">List Mahasiswa</a>
+                            <a href="{{route('dosen.mahasiswa.rooms')}}" class="btn btn-primary center-block">List Mahasiswa</a>
                             </div>
                           </div>
             </div>
@@ -32,7 +32,7 @@
                             <div class="card-body"><h3></h3>
                             <h4 class="card-title text-center">Kelas</h4>
                                 <p class="card-text text-center">Kelas berisi informasi kelas yang terdaftar di Matakuliah STUPA</p>
-                            <a href="#" class="btn btn-primary center-block">Kelas</a>
+                            <a href="{{route('voyager.rooms.index')}}" class="btn btn-primary center-block">Kelas</a>
                             </div>
                           </div>
             </div>
@@ -43,7 +43,7 @@
                         <div class="card-body"><h3></h3>
                         <h4 class="card-title text-center">Daftar Pengumpulan</h4>
                                 <p class="card-text text-center">Melihat semua tugas yang sudah dikumpulkan</p>
-                            <a href="#" class="btn btn-primary center-block">Lihat</a>
+                            <a href="{{route('dosen.tasks.rooms')}}" class="btn btn-primary center-block">Lihat</a>
                         </div>
                       </div>
             </div>

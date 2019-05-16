@@ -14,7 +14,10 @@ class TeacherController extends Controller
         $rooms = Auth::user()->rooms;
         return view('dashboard.viewAllRooms', ['rooms'=>$rooms]);
     }
-
+    public function viewAllRoomsMhs(){
+        $rooms = Auth::user()->rooms;
+        return view('dashboard.viewAllRoomsMhs', ['rooms'=>$rooms]);
+    }
     public function viewAllTasks(Request $request, $id){
         // dd($request);
 
@@ -38,5 +41,12 @@ class TeacherController extends Controller
         $collection=$task->collections->where('id',$idcollection)->first();
         // dd($collection);
         return view('dashboard.viewCollection',['collection'=>$collection]);
+    }
+
+    public function viewMahasiswaOfRoom($idroom){
+        $room = \App\Room::findOrFail($idroom);
+        $mhs = $room->mahasiswa;
+
+        return view('dashboard.viewMahasiswaOfRoom',['mhs'=>$mhs, 'roomid'=> $idroom]);
     }
 }

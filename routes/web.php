@@ -44,3 +44,15 @@ Route::group(['prefix' => 'user/semuaTugas'], function () {
     Route::get('{id}/{id2}', 'AdminController@viewAllCollections')->name('admin.tasks.collections');
     Route::get('{id}/{id2}/{id3}', 'AdminController@viewCollection')->name('admin.tasks.collection');
 });
+Route::group(['prefix' => 'user/dosenLihatTugas'], function () {
+    Route::get('', 'TeacherController@viewAllRooms')->name('dosen.tasks.rooms');
+    Route::get('{id}', 'TeacherController@viewAllTasks')->name('dosen.tasks.tasks');
+    Route::get('{id}/{id2}', 'TeacherController@viewAllCollections')->name('dosen.tasks.collections');
+    Route::get('{id}/{id2}/{id3}', 'TeacherController@viewCollection')->name('dosen.tasks.collection');
+});
+
+Route::group(['prefix' => 'user/dosenLihatMahasiswa'], function () {
+    Route::get('', 'TeacherController@viewAllRoomsMhs')->name('dosen.mahasiswa.rooms');
+    Route::get('{id}', 'TeacherController@viewMahasiswaOfRoom')->name('dosen.mahasiswa.mahasiswa');
+    Route::get('{id}/{id2}', 'TeacherController@viewAllCollections')->name('dosen.mahasiswa');
+});

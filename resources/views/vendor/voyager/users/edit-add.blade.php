@@ -44,7 +44,12 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('voyager::generic.name') }}"
                                        value="{{ $dataTypeContent->name ?? '' }}">
                             </div>
-
+                            
+                                    <div class="form-group">
+                                        <label for="name">{{ __('identity') }}</label>
+                                        <input type="text" class="form-control" id="identity" name="identity" placeholder="{{ __('NIM/NPM') }}"
+                                               value="{{ $dataTypeContent->identity ?? '' }}">
+                                    </div>
                             <div class="form-group">
                                 <label for="email">{{ __('voyager::generic.email') }}</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('voyager::generic.email') }}"
